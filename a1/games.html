@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamesRUs</title>
+    
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Ysabeau+SC:wght@400;700&family=Parkinsans:wght@400;700&family=Ga+Maamli:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="games">
+    <header>
+        <div class="header-container">
+            <a href="index.html">
+                <img class="about-logo-image" alt="company logo" src="images/logo.png">
+            </a>
+            <div class="nav-container">
+                <select id="nav-select">
+                    <option value="">Select an option...</option>
+                    <option value="index.html">Home</option>
+                    <option value="games.html">Games</option>
+                    <option value="add.html">Add</option>
+                    <option value="gallery.html">Gallery</option>
+                </select>
+            </div>
+            <div class="search-container">
+                <input type="text" placeholder="Search...">          
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="game-info-container">
+            <h1>Discover GamesRUs</h1>
+            <p>Located in the heart of the city, GamesRUs is a haven for both casual gamers and dedicated enthusiasts alike. Established in 2010, the store has grown into a community hub, offering a wide array of video games, board games, consoles, and gaming accessories. From the latest AAA titles to indie gems, GamesRUs prides itself on maintaining a diverse and carefully curated selection. Whether you're looking for the hottest new release or a nostalgic classic, the knowledgeable staff at GamesRUs is always ready to assist with recommendations or troubleshooting any gaming-related queries.</p>
+        </div>
+
+        <div class="game-display-container">
+            <div class="game-image-container">
+                <img src="images/games.jpeg" alt="Gaming setup with controllers and keyboard" class="game-image">
+            </div>
+
+            <div class="game-table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Price</th>
+                            <th>Platforms</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Neon Velocity: Cyber Races</td>
+                            <td>Racing / Action</td>
+                            <td>$29.99</td>
+                            <td>PC, PlayStation, Xbox</td>
+                        </tr>
+                        <tr>
+                            <td>Enchanted Realms: Mystic Forest</td>
+                            <td>Role-Playing Game (RPG) / Fantasy Adventure</td>
+                            <td>$49.99</td>
+                            <td>PC, PlayStation, Nintendo Switch</td>
+                        </tr>
+                        <tr>
+                            <td>Cosmic Odyssey: Crystal Horizons</td>
+                            <td>Exploration / Sci-Fi Adventure</td>
+                            <td>$39.99</td>
+                            <td>PC, Xbox, PlayStation</td>
+                        </tr>
+                        <tr>
+                            <td>Wasteland Chronicles: Steel Shadows</td>
+                            <td>Survival / Open-World Adventure</td>
+                            <td>$59.99</td>
+                            <td>PC, Xbox</td>
+                        </tr>
+                        <tr>
+                            <td>Gladiators of the Void</td>
+                            <td>Multiplayer Battle Arena</td>
+                            <td>$19.99</td>
+                            <td>PC, PlayStation</td>
+                        </tr>
+                        <tr>
+                            <td>Pixel Depths: Hero's Descent</td>
+                            <td>Action / Dungeon Crawler</td>
+                            <td>$14.99</td>
+                            <td>PC, Nintendo Switch</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", (event) => {
+            
+            let games = JSON.parse(localStorage.getItem("games")) || [];
+        
+            let tableBody = document.querySelector("table tbody");
+        
+            games.forEach(game => {
+                let row = document.createElement("tr");
+
+                let nameCell = document.createElement("td");
+                nameCell.textContent = game.name;
+                row.appendChild(nameCell);
+
+                let typeCell = document.createElement("td");
+                typeCell.textContent = game.type;
+                row.appendChild(typeCell);
+                
+                let priceCell = document.createElement("td");
+                priceCell.textContent = game.price;
+                row.appendChild(priceCell);
+
+                let platformCell = document.createElement("td");
+                platformCell.textContent = game.platforms;
+                row.appendChild(platformCell);
+
+                tableBody.appendChild(row);
+            });
+        });
+    </script>
+
+    <footer class="footer-whole">
+        <div class="footer-container">
+            <p class="footer-text">&copy; Syed Raza s3786488 All rights reserved. | Designed for GamesRUs</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
