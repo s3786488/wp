@@ -277,28 +277,216 @@ h2 {
     opacity: 1;
 }
 
+/* Add Game Form */
+.add-game-container {
+    background-color: white;
+    max-width: 1200px;
+    margin: 65px auto;
+    padding: 40px auto;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Heading */
+.add-game-container h1 {
+    text-align: center;
+    color: #e84a5f;
+    margin-top: -50px;
+    margin-bottom: 0px;
+    font-size: 2em;
+}
+
+/* Form Description */
+.add-game-container p {
+    text-align: center;
+    color: #333;
+    margin-bottom: 0px;
+    margin-top: -50px;
+}
+
+/* Labels */
+.add-game-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #3a2d78;
+}
+
+/* Form Inputs */
+.add-game-container input[type="text"],
+.add-game-container input[type="number"],
+.add-game-container textarea,
+.add-game-container input[type="file"],
+.add-game-container select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+/* Placeholder Styling */
+.add-game-container input[type="text"]::placeholder,
+.add-game-container input[type="number"]::placeholder,
+.add-game-container textarea::placeholder {
+    color: #999;
+}
+
+/* Focus Effect */
+.add-game-container input:focus,
+.add-game-container textarea:focus {
+    border-color: #1c1a49;
+}
+
+/* Buttons */
+.form-buttons {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.styled-button {
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: none;
+    background-color: #e84a5f;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.styled-button img {
+    width: 20px;
+    height: 20px;
+}
+
+.styled-button:hover {
+    background-color: #c73242;
+}
+
+/* Outlined Button */
+.outlined-button {
+    background-color: white;
+    color: #e84a5f;
+    border: 2px solid #e84a5f;
+}
+
+.outlined-button:hover {
+    background-color: #f5d1d4;
+}
+
+.material-symbols-outlined {
+    font-size: 20px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/* Gallery Page */
+.gallery-page {
+    background-color: #d4cfe0;
+    text-align: center;
+}
+
+/* Title */
+.gallery-title {
+    font-size: 3em;
+    color: #e84a5f;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Description */
+.gallery-description {
+    font-size: 1em;
+    color: #333;
+    max-width: 1200px;
+    margin: 5px auto 30px;
+    margin-top: 5px;
+    line-height: 1.2;
+    text-align: center;
+}
+
+/* Gallery Grid */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+    gap: 25px; /* Space between items */
+    justify-items: center;
+    margin: 30px auto;
+    max-width: 1200px;
+}
+
+/* Gallery Items */
+.gallery-item {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 15px;
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
+    max-width: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    max-width: 100%; 
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item h3 {
+    padding: 10px;
+    font-size: 1em;
+    color: #3a2d78;
+}
+
+/* Hover Effects */
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-item:hover img {
+    opacity: 0.8;
+}
+
 /* Footer */
 .footer-container {
     max-width: 1200px;
-    margin: 50px auto;
-    padding: 0 20px;
-    text-align: center; /* Ensures text is centered */
+    margin: 20px auto; /* Reduce margin */
+    padding: 5px 0; /* Reduce padding */
+    text-align: center;
     display: flex;
-    justify-content: center; /* Centers content horizontally */
-    align-items: center; /* Aligns content vertically */
+    justify-content: center;
+    align-items: center;
 }
 
 footer {
-    background-color: #1c1a49; /* Consistent footer color */
+    background-color: #1c1a49;
     color: white;
-    padding: 15px 0;
+    padding: 5px 0; /* Reduce footer height */
     border-radius: 8px;
-    position: fixed;  /* Keeps footer in a fixed position */
-    bottom: 0;  /* Sticks to the bottom */
-    width: 100%;  /* Ensures full width */
-    text-align: center;  /* Centers text */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 0.8em; /* Reduce text size */
 }
 
 body {
-    padding-bottom: 60px; /* Adjust this value based on your footer height */
+    padding-bottom: 40px; /* Adjust padding to match new footer height */
 }

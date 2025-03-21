@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+    <title>Add a Game</title>
+</head>
+<body class="games">
+    <header>
+        <div class="header-container">
+            <img class="about-logo-image" alt="company logo" src="images/logo.png">
+            <div class="nav-container">
+                <select id="nav-select">
+                    <option value="">Select an option...</option>
+                    <option value="index.html">Home</option>
+                    <option value="gallery.html">Gallery</option>
+                    <option value="games.html">Games</option>
+                    <option value="add.html">Add</option>
+                </select>
+            </div>
+            <div class="search-container">
+                <input type="text" placeholder="Search...">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="add-game-container">
+            <h1>Add a Game</h1>
+            <p>You can add a new game here</p>
+            <form>
+                <label for="game-name">Game Name *</label>
+                <input type="text" id="game-name" name="game-name" placeholder="Provide a name for the game" required>
+
+                <label for="game-type">Type *</label>
+                <input type="text" id="game-type" name="game-type" placeholder="Provide a type for the game" required>
+
+                <label for="description">Description *</label>
+                <textarea id="description" name="description" placeholder="Describe the game briefly" required></textarea>
+
+                <label for="image">Select an Image: *</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+                <small>Max image size: 500px</small>
+
+                <label for="image-caption">Image Caption: *</label>
+                <input type="text" id="image-caption" name="image-caption" placeholder="Describe the image in one word" required>
+
+                <label for="price">Price: *</label>
+                <input type="number" id="price" name="price" placeholder="Game price in USD" required>
+
+                <label for="platform">Platform: *</label>
+                <input type="text" id="platform" name="platform" placeholder="Platform of the game" required>
+
+                <div class="form-buttons">
+                    <button type="submit" class="styled-button">
+                        <span class="material-symbols-outlined">check_circle</span> submit
+                    </button>
+                    <button type="reset" class="styled-button outlined-button">
+                        <span class="material-symbols-outlined">cancel</span> clear
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        document.querySelector("form").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+
+            let gameName = document.querySelector('input[name="game-name"]').value;
+            let gameType = document.querySelector('input[name="game-type"]').value;
+            let description = document.querySelector('textarea[name="description"]').value;
+            let imageCaption = document.querySelector('input[name="image-caption"]').value;
+            let price = document.querySelector('input[name="price"]').value;
+            let platform = document.querySelector('input[name="platform"]').value;
+
+            let game = {
+                name: gameName,
+                type: gameType,
+                price: price,
+                platform: platform
+            };
+
+            let games = JSON.parse(localStorage.getItem("games")) || [];
+            games.push(game);
+            localStorage.setItem("games", JSON.stringify(games));
+
+            document.querySelector("form").reset();
+            alert("Game added successfully!");
+        });
+    </script>
+
+    <footer class="footer-whole">
+        <div class="footer-container">
+            <p class="footer-text">&copy; Syed Raza s3786488 All rights reserved. | Designed for GamesRUs</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
