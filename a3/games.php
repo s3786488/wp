@@ -19,7 +19,7 @@ include 'inc/db_connect.inc';
         <div class="row align-items-start mt-5">
             <!-- Game Image -->
             <div class="col-md-5">
-                <img src="images/games.jpeg" alt="Gaming setup" class="img-fluid rounded shadow" />
+                <img src="images/games.jpeg" alt="Gaming setup" class="img-fluid rounded shadow">
             </div>
 
             <!-- Game Table -->
