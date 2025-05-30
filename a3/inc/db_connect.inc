@@ -4,14 +4,10 @@ $db = 'gamesrus';
 $user = 'root';
 $pass = '';
 
-// Create connection using MySQLi with error handling
-$conn = new mysqli($host, $user, $pass, $db);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Database connection failed: " . $conn->connect_error);
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8mb4", $user, $pass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Database connection failed: " . $e->getMessage());
 }
-
-// Set charset to UTF-8
-$conn->set_charset("utf8mb4");
 ?>

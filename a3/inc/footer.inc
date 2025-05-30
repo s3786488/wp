@@ -1,5 +1,5 @@
 <footer class="text-center mt-4 p-3 bg-dark text-white">
-    &copy; <?= date('Y') ?> GamesRUs. All rights reserved.
+    &copy; <?= date('Y') ?> Syed Raza s3786488 GamesRUs. All rights reserved.
 </footer>
 
 <!-- Bootstrap 5 JS Bundle -->

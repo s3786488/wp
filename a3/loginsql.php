@@ -1,10 +1,5 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 session_start();
-
 include('inc/db_connect.inc');
 
 $error = '';
@@ -18,14 +13,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute([$username]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($user) {
-            if (password_verify($password, $user['password'])) {
-                $_SESSION['username'] = $username;
-                header("Location: index.php");
-                exit();
-            } else {
-                $error = "Invalid username or password.";
-            }
+        if ($user && password_verify($password, $user['password'])) {
+            $_SESSION['username'] = $username;
+            $_SESSION['flash_message'] = "Login successful!";
+            header("Location: index.php");
+            exit();
         } else {
             $error = "Invalid username or password.";
         }

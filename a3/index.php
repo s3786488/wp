@@ -4,35 +4,42 @@ include 'inc/header.inc';
 include 'inc/nav.inc';
 ?>
 
+<?php if (isset($_SESSION['flash_message'])): ?>
+    <div class="flash-success">
+        <?= htmlspecialchars($_SESSION['flash_message']) ?>
+        <?php unset($_SESSION['flash_message']); ?>
+    </div>
+<?php endif; ?>
+
 <main>
     <!-- Welcome Hero Section -->
     <div class="welcome">
         <div class="content">
-            <h1>GAMESRUS</h1>
-            <h2>WELCOME TO THE</h2>
+            <h1 class="permanent-marker-regular" style="color: #e84a5f;">GAMESRUS</h1>
+            <h2>THE</h2>
             <h3>ULTIMATE GAMING DESTINATION</h3>
         </div>
 
-        <!-- Carousel Replacing Static Image -->
+        <!-- Carousel -->
         <div class="contentimg">
             <div id="carouselExample" class="carousel slide mb-4" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
+                        <img src="images/game1.jpg" class="d-block w-100" alt="Call of Honor" style="max-height: 400px;">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Call of Honor</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/game2.jpg" class="d-block w-100" alt="Fantasy Saga" style="max-height: 400px;">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Fantasy Saga</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
                         <img src="images/game3.jpg" class="d-block w-100" alt="Puzzle Panic" style="max-height: 400px;">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Puzzle Panic</h5>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="images/game4.jpg" class="d-block w-100" alt="Survival Adventure" style="max-height: 400px;">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Survival Adventure</h5>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="images/game6.jpg" class="d-block w-100" alt="Fantasy Saga" style="max-height: 400px;">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Fantasy Saga</h5>
                         </div>
                     </div>
                 </div>
@@ -47,32 +54,30 @@ include 'inc/nav.inc';
     </div>
 
     <!-- Additional Description + Search -->
-    <div class="additional-content">
-        <div class="content">
-            <h1>Discover GamesRUS</h1>
-            <p>
-                GamesRUS is your go-to hub for discovering the best video games across genres and generations.
-                Whether you're into action, puzzles, or fantasy adventures, GamesRUS helps you find what you're looking for — and trade your old games while you're at it.
-                Our platform is built for gamers who want a great experience, both online and offline. With trade-ins, discounts, loyalty rewards, and a powerful search, GamesRUS is where real players connect with great titles.
-            </p>
-        </div>
+    <section class="section">
+        <h2 class="title">GamesRUs has a lot to offer!</h2>
+        <p class="description">
+            To cater to the rapidly changing gaming landscape, GamesRUs also provides trade-in services and pre-owned game sales, allowing gamers to exchange old titles for store credit or discounted purchases. Additionally, the store has a strong online presence, with a user-friendly website offering nationwide shipping. Their loyalty program offers regular customers exclusive discounts, early access to sales, and invitations to members-only events.
+        </p>
+        <p class="description">
+            GamesRUs continues to evolve, staying ahead of trends in gaming and community engagement. With its commitment to providing the best gaming experience, it’s no wonder GamesRUs is a staple for gamers — veterans and newcomers alike.
+        </p>
 
-        <!-- Search Section -->
-        <div class="search-section">
-            <form action="search.php" method="GET" id="search-form">
+        <!-- Search Bar -->
+        <div class="filter-bar">
+            <form action="search.php" method="GET">
                 <input type="text" name="search_query" placeholder="I am looking for ..." 
-                    value="<?php echo isset($_GET['search_query']) ? htmlspecialchars($_GET['search_query']) : ''; ?>">
-
+                    value="<?= isset($_GET['search_query']) ? htmlspecialchars($_GET['search_query']) : '' ?>">
                 <select name="type">
-                    <option value="">Select game type</option>
-                    <option value="Action" <?php if (isset($_GET['type']) && $_GET['type'] === 'Action') echo 'selected'; ?>>Action</option>
-                    <option value="Fantasy" <?php if (isset($_GET['type']) && $_GET['type'] === 'Fantasy') echo 'selected'; ?>>Fantasy</option>
-                    <option value="Puzzle" <?php if (isset($_GET['type']) && $_GET['type'] === 'Puzzle') echo 'selected'; ?>>Puzzle</option>
+                    <option value="">Select type...</option>
+                    <option value="Action" <?= (isset($_GET['type']) && $_GET['type'] === 'Action') ? 'selected' : '' ?>>Action</option>
+                    <option value="Fantasy" <?= (isset($_GET['type']) && $_GET['type'] === 'Fantasy') ? 'selected' : '' ?>>Fantasy</option>
+                    <option value="Puzzle" <?= (isset($_GET['type']) && $_GET['type'] === 'Puzzle') ? 'selected' : '' ?>>Puzzle</option>
                 </select>
-                <button type="submit">Search</button>
+                <button class="submitButton" type="submit">Search</button>
             </form>
         </div>
-    </div>
+    </section>
 </main>
 
 <?php include 'inc/footer.inc'; ?>
